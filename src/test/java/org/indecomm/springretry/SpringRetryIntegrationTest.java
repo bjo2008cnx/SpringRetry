@@ -20,7 +20,7 @@ public class SpringRetryIntegrationTest {
     @Autowired
     private RetryTemplate retryTemplate;
 
-    @Test(expected = RuntimeException.class)
+    @Test//(expected = RuntimeException.class)
     public void givenRetryService_whenCallWithException_thenRetry() {
         myService.retryService();
     }

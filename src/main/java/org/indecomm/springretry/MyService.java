@@ -8,14 +8,17 @@ import org.springframework.retry.annotation.Retryable;
 
 public interface MyService {
     
-    @Retryable
+    @Retryable(value = { RuntimeException.class }, maxAttempts = 2, backoff = @Backoff(delay = 5000))
     void retryService();
 
     @Retryable(value = { SQLException.class }, maxAttempts = 2, backoff = @Backoff(delay = 5000))
     void retryServiceWithRecovery(String sql) throws SQLException;
 
     @Recover
-    void recover(SQLException e, String sql);
+    void recover(SQLException e, String sql); //处理SQLException
+
+    @Recover
+    void recover(RuntimeException e); //处理RuntimeException
 
     void templateRetryService();
 }

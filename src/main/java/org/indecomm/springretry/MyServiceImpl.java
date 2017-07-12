@@ -32,6 +32,11 @@ public class MyServiceImpl implements MyService {
     }
 
     @Override
+    public void recover(RuntimeException e) {
+        logger.info("恢复.No sql..........In recover method");
+    }
+
+    @Override
     public void templateRetryService() {
         logger.info("模板重试方法. throw RuntimeException in method templateRetryService()");
         throw new RuntimeException("模板重试方法调用失败");
