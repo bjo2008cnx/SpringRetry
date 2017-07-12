@@ -1,3 +1,6 @@
+spring-retry项目地址：
+https://github.com/spring-projects/spring-retry
+
 This project provides declarative retry support for Spring
 applications. It is used in Spring Batch, Spring Integration,
 Spring for Apache Hadoop (amongst others).

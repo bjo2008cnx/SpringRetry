@@ -14,26 +14,26 @@ public class MyServiceImpl implements MyService {
 
     @Override
     public void retryService() {
-        logger.info("throw RuntimeException in method retryService()");
-        throw new RuntimeException();
+        logger.info("抛出异常. throw RuntimeException in method retryService()");
+        throw new RuntimeException("服务调用失败");
     }
 
     @Override
     public void retryServiceWithRecovery(String sql) throws SQLException {
         if (StringUtils.isEmpty(sql)) {
-            logger.info("throw SQLException in method retryServiceWithRecovery()");
-            throw new SQLException();
+            logger.info("抛出SQL异常. throw SQLException in method retryServiceWithRecovery()");
+            throw new SQLException("SQL执行失败");
         }
     }
 
     @Override
     public void recover(SQLException e, String sql) {
-        logger.info("In recover method");
+        logger.info("恢复..........In recover method");
     }
 
     @Override
     public void templateRetryService() {
-        logger.info("throw RuntimeException in method templateRetryService()");
-        throw new RuntimeException();
+        logger.info("模板重试方法. throw RuntimeException in method templateRetryService()");
+        throw new RuntimeException("模板重试方法调用失败");
     }
 }
